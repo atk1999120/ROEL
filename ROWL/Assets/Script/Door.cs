@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour{
+public class Door : MonoBehaviour
+{
+    public bool IsGirlOnly = true;
     void Start()
     {
         var CapsuleCollider = this.transform.parent.gameObject.AddComponent<CapsuleCollider>();
