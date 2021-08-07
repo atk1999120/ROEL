@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public bool IsGirlOnly = true;
+    public SetDoorAction.DoorOpenRestriction DoorOpenRestriction;
     void Start()
     {
-        var CapsuleCollider = this.transform.parent.gameObject.AddComponent<CapsuleCollider>();
-        CapsuleCollider.radius = 1.5f;
-        CapsuleCollider.height = 1f;
-        CapsuleCollider.isTrigger = true;
+        CapsuleCollider CapsuleCollider = null;
+        if (DoorOpenRestriction == SetDoorAction.DoorOpenRestriction.IsGetKeyItem)
+        {
+            CapsuleCollider = this.gameObject.AddComponent<CapsuleCollider>();
+            CapsuleCollider.center = Vector3.zero;
+            CapsuleCollider.radius = 1.5f;
+            CapsuleCollider.height = 1f;
+            CapsuleCollider.isTrigger = true;
+        }
+        else
+        {
+            CapsuleCollider = this.transform.parent.gameObject.AddComponent<CapsuleCollider>();
+            CapsuleCollider.radius = 1.5f;
+            CapsuleCollider.height = 1f;
+            CapsuleCollider.isTrigger = true;
+        }
         var doorAction = CapsuleCollider.gameObject.AddComponent<SetDoorAction>();
+        doorAction.ThisDoorOpenRestriction = DoorOpenRestriction;
         var Animator = GetComponent<Animator>();
         doorAction.animator = Animator;
     }
