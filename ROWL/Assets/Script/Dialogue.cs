@@ -15,5 +15,12 @@ public class Dialogue : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         DescriptionText.text = message;
+        StartCoroutine(DisapearDialog());
+    }
+
+    IEnumerator DisapearDialog()
+    {
+        yield return new WaitForSeconds(1f);
+        this.gameObject.SetActive(false);
     }
 }
