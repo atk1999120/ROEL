@@ -6,9 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Abandoned_Asylum/ROWL_Field.unity
+    path: Assets/Scenes/ROWL_Field.unity
     guid: 7ff8f06f31b0626419cb2e4093cc6386
+  - enabled: 1
+    path: Assets/Scenes/ResultScene.unity
+    guid: c18ba960cbd011f4facc2c698bf81094
   - enabled: 0
     path: Assets/Scenes/StartScene.unity
     guid: f6743e9e60569df42a4ca1cc6a69ad79
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: a8be1b14ee238cb41b6d4383e7eb3dd3,
+      type: 2}
